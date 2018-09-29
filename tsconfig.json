@@ -16,7 +16,8 @@
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "src/*",
+        "node_modules/webix/*"
       ]
     },
     "lib": [
@@ -35,5 +36,6 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+ 
 }
