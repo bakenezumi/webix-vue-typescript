@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div id='content'></div>
 </template>
 
 <script lang='ts'>
@@ -9,9 +9,10 @@ import 'webix';
 
 @Component
 export default class Example1 extends Vue {
-  private layout: webix.ui.layout = this.createLayout();
+  private layout!: webix.ui.layout;
 
-  public created(): void {
+  public mounted(): void {
+    this.layout = this.createLayout();
     this.init();
   }
   public destroyed(): void {
@@ -39,7 +40,8 @@ export default class Example1 extends Vue {
     };
     return webix.ui({
       padding: 50,
-      width: 800,
+      width: 1200,
+      container: 'content',
       height: 590,
       type: 'space',
       rows: [
