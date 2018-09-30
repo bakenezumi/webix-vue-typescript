@@ -6,6 +6,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import 'webix';
 import router from '../../router';
+import VueRouter from 'node_modules/vue-router/types';
 
 @Component
 export default class Menu extends Vue {
@@ -13,8 +14,10 @@ export default class Menu extends Vue {
 
   public mounted(): void {
     this.layout = this.createLayout();
-    const route = router.currentRoute;
-    this.layout.select(route.name ? route.name : 'home', true);
+    router.onReady(() => {
+      const route = router.currentRoute;
+      this.layout.select(route.name ? route.name : 'home', true);
+    })
   }
 
   public createLayout(): webix.ui.contextmenu {
